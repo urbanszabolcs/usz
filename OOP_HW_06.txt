@@ -1,0 +1,38 @@
+6. heti házi feladat:
+
+A szerző, cím és ár adattagok változatlanok. 
+A megjelenés éve (yearOfPublication) legyen konstans, az objektum létrehozás éve (dátumkezeléssel!).
+Egészítse ki az osztályt új adattaggal:
+- oldalszám (pages)
+   
+Módosítsa a 2 konstruktort.
+- Az első konstruktor 4 paraméteres (szerző, cím, ár, oldalszám). 
+A megjelenés évét a LocalDate osztály metódusainak felhasználásával állítja be.
+Az ár és az oldalszám nem lehet negatív (default értékük 0).
+- A második konstruktor 2 paraméteres (szerző, cím). Az árat 2500 Ft-ra, az oldalszámot 100-ra állítja.
+
+Törölje a displayInfo() metódust.
+Módosítsa a toString() metódust, amely String-ben összefűzve adja vissza a könyv adatait.
+Hozza létre az új adattagokhoz a getter, setter metódusokat. Ha oldalszámnak negatív számot adunk, ne változzon az értéke.
+Írjon osztályszintű metódust, amely két paraméterként kapott könyv közül a hosszabbat adja vissza (getLonger()). Azonos oldalszám esetén az első könyvet. 
+Írjon példányszintű metódust, amely igazat ad vissza, ha a könyv oldalszáma páros (hasEvenPages()).
+
+Oldja meg az alábbi feladatokat:
+- A Homework osztály main függvényében olvasson be n darab könyvet egy tömbbe! n értékét ellenőrzött módon olvassa be 1 és 10 között (readInt())! A könyvek létrehozásához az 1. konstruktort használja!
+- A Book osztályba írjon public static módosítójú tömbkiíró metódust (void listBookArray(Book[])) és írja ki vele a beolvasott könyveket a Homework.main függvényen belül!
+- A Book osztályba írjon public static módosítójú Book getLongestBook(Book[]) metódust, ami megkeresi és visszaadja a leghosszabb könyvet! Írja ki ennek a könyvnek az adatait a Homework osztály main függvényén belül!
+- A Book osztályba írjon public static módosítójú Book getLongestEvenPagesBook(Book[]) metódust, ami megkeresi és visszaadja a leghosszabb páros oldalszámú könyet! Ha nincs páros oldalszámú könyv a kapott tömbben, adjon vissza null-t! Írja ki ennek a könyvnek az adatait a Homework osztály main függvényén belül!
+	Algoritmus:
+		Beállítjuk a maxBook változót null-ra.
+		A tömb elemein végighaladva
+			megvizsgáljuk, hogy az adott elem páros oldalszámú-e,
+				ha igen,
+					eltároljuk az elemet a maxBook változóban
+					kilépünk a ciklusból
+		A tömb elemein végighaladva
+			megvizsgáljuk, hogy az adott elem páros oldalszámú-e és nagyobb-e az oldalszáma a maxBook-ban tárolt könyvnél
+			ha igen
+				A maxBook-ot beállítjuk a jelenlegi tömbelemre
+		Visszatérünk a maxBook változóval
+- A Book osztályba írjon public static módosítójú (void authorStatistics(Book[])) metódust, amely kiírja mely szerzőnek hány könyve jelent meg! A Homework.main függvényen belül írassa ki a beolvasott könyvek statisztikáit!
+Algoritmus: Veszem a következő könyvet. Ha a szerzője megegyezik egy korábban már vizsgált könyv szerzőjével, akkor továbblépek a következő könyvre. Ha ez az adott szerző első előfordulása, akkor létrehozok egy számláló változót 1 értékkel és kiírom a szerző nevét. Az aktuális indextől kezdve nézem a könyvek szerzőit, ha azonos szerzőt találok, növelem eggyel a számlálót. A végén kiírom a számláló értékét.
